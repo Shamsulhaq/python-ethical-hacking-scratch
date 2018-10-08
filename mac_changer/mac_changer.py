@@ -11,8 +11,6 @@ parser.add_option("-m", "--mac", dest="set_mac", help="Set MAC address. Example 
 interface = options.interface or input("interface > ")
 set_mac = options.set_mac or input("set Mac > ")
 
-# interface = input("interface > ")
-# set_mac = input("set Mac > ")
 
 subprocess.run(["ifconfig", interface, "down"])
 subprocess.run(["ifconfig", interface, "hw", "ether", set_mac])
