@@ -9,7 +9,6 @@ def get_arguments():
     parser.add_option("-i", "--interface", dest="interface",
                       help="Interface to change mack address. Example- eth0, wlan0")
     parser.add_option("-m", "--mac", dest="set_mac", help="Set MAC address. sure it will 12 characters")
-    # return parser.parse_args()
     (options, argument) = parser.parse_args()
     if not options.interface:
         parser.error("[-] Please specify an interface, use --help for more info")
@@ -40,11 +39,16 @@ options = get_arguments()
 # interface = options.interface or input("interface > ")
 # set_mac = options.set_mac or input("mack > ")
 
-# interface = options.interface
-# set_mac = options.set_mac
+interface = options.interface
+set_mac = options.set_mac
 
-# print([interface, set_mac])
-# change_mac(interface, set_mac)
-
-current_mac = get_current_mac(options.interface)
+current_mac = get_current_mac(interface)
 print("current mac: ", current_mac)
+
+change_mac(interface, set_mac)
+
+current_mac = get_current_mac(interface)
+if current_mac == set_mac:
+    print("[+] MAC address successfully changed to ", current_mac)
+else:
+    print("[-] MAC address did not changed!")
