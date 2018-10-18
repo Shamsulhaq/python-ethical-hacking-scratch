@@ -10,3 +10,8 @@ max ip will be 8, 16 or 24
 // check router address
 command: route -n
 
+"""
+    pdst =
+    psrc = ip address
+    hwsrc = hardware / mac address
+"""
