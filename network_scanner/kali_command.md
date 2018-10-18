@@ -8,5 +8,5 @@ netdiscover -r 192.168.---.1/24
 max ip will be 8, 16 or 24
 
 // check router address
-command: router -n
+command: route -n
 
