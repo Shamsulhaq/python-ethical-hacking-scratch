@@ -1,4 +1,4 @@
-# Python Penetrationg form scratch
+# Python Penetrationg from scratch
 
 ## Usign
 Python3
