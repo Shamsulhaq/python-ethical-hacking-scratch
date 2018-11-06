@@ -1,4 +1,4 @@
-# python-ethical-hacking-scratch
+# Python Penetrationg form scratch
 
-# Usign 
-Python2 and Python3
+## Usign
+Python3
